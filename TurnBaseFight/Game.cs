@@ -22,6 +22,8 @@ namespace TurnBasedFight
 
 	class Game
 	{
+
+		public List<CharacterBase> globalHerosList;
 		public Queue<CharacterBase> turnQueue { get; }
 		public CharacterBase[] characterList;
 		public CharacterBase[] heros;
@@ -34,6 +36,7 @@ namespace TurnBasedFight
 			characterList = new CharacterBase[5];
 			heros = new CharacterBase[2];
 			monisters = new CharacterBase[3];
+			globalHerosList = new List<CharacterBase>(10);//default 10 hero slot
 			CharacterBase h1 = new WitchDoctor(100, 20, 300, 20, 10);
 			//GameObjectBase h2 = new Magician(50, 15, 300, 20, 10);
 			CharacterBase h2 = new Warrior(200, 15, 120, 30, 10);
@@ -43,9 +46,9 @@ namespace TurnBasedFight
 			heros[0] = h1;
 			heros[1] = h2;
 			//heros[2] = h3;
-			CharacterBase m1 = new Goblin("Goblin1");
-			CharacterBase m2 = new Goblin("Goblin2");
-			CharacterBase m3 = new GoblinKing("Goblin King1", _ATK:30, _HP:2000);
+			CharacterBase m1 = Monister.CreateGoblin("Goblin1", _HP:100);
+			CharacterBase m2 = Monister.CreateGoblin("Goblin2", _HP:30, _ATK:30);
+			CharacterBase m3 = Monister.CreateGoblinKing("GK", _HP: 1000, _ATK: 30);
 			characterList[2] = m1;
 			characterList[3] = m2;
 			characterList[4] = m3;

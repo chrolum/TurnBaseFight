@@ -5,6 +5,14 @@ using System.Text;
 
 namespace TurnBasedFight
 {
+	enum CharacterType
+	{
+		monister = 0,
+		goblin,
+		goblinKing,
+		hero,
+
+	}
 	class CharacterBase
 	{
 		public int HP { get; set; }
@@ -19,6 +27,7 @@ namespace TurnBasedFight
 		public bool isAuto = false; //for AI
 		public bool isDead {get; set;} = false;
 		public bool isMoniter = false;
+		public CharacterType chaType;
 		//TODO：Dynamic speed for turn
 		public CharacterBase(int _HP = 100, int _DEF = 10, int _MP = 30, int _ATK = 10, int _DEX = 10)
 		{
